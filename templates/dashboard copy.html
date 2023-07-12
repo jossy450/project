@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <h2>Processed Data</h2>
+    <p>Data processed from the uploaded file:</p>
+    <p><a href="{{ data_path }}">Download Processed Data</a></p>
+
+Here's the continuation of the `dashboard.html` file:
+
+```html
+    <h2>Monthly Expenses with Future Predictions</h2>
+    <img src="{{ chart_path }}" alt="Expense Chart">
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+
+    <h2>Uploaded CSV Data</h2>
+    <table>
+        <thead>
+            <tr>
+                {% for column in data.columns %}
+                <th>{{ column }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for _, row in data.iterrows() %}
+            <tr>
+                {% for _, value in row.items() %}
+                <td>{{ value }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Monthly Expenses with Future Predictions</h2>
+    <img src="{{ chart_path }}" alt="Expense Chart">
+
+</body>
+</html>
+
